@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Очень простой слайдер на JS+jQuery</title>
+	<style type="text/css">
+	body {
+		background: #eee; 
+		margin: 0;
+		font-family: arial;
+	}
+	.wrapper {
+		background: #fff;
+		width: 700px;
+		padding: 1px 15px 15px;
+		margin: 0 auto; 
+	}
+	.slider {
+		z-index: 9;
+		width: 700px;
+		height: 290px;
+		overflow: hidden;
+		margin: 0 0 7px;
+		position: relative;
+	}
+	.slider ul,
+	.slider li {
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+	}
+	.slider ul {
+		width: 9999px; 
+	}
+	.slider ul li {
+		list-style-type: none;
+		float: left;
+		width: 700px;
+		height: 290px;
+	}
+	.slider .nav {
+		position: absolute;
+		left: 15px;
+		bottom: 12px; 
+	}
+	.slider .nav span {
+		opacity: 0.9;
+		background: #fff;
+		margin: 0 8px 0 0;
+		width: 16px;
+		height: 16px;
+		border-radius: 8px;
+		cursor: pointer;
+		overflow: hidden;
+		display: block;
+		float: left;
+		box-shadow: 0 1px 2px #000;
+	}
+	.slider .nav span.on {
+		background: #2e9419;
+	}
+	</style>
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".slider").each(function ()
+		{
+			var obj = $(this);
+			$(obj).append("<div class='nav'></div>");
+
+			$(obj).find("li").each(function ()
+			{
+				$(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>");
+				$(this).addClass("slider"+$(this).index());
+			});
+
+			$(obj).find("span").first().addClass("on");
+			//$("li:first span", obj).addClass("on");
+		});
+	});
+
+	function sliderJS (obj, sl) // slider function
+	{
+		var ul = $(sl).find("ul");
+		var bl = $(sl).find("li.slider"+obj);
+		var step = $(bl).width();
+		$(ul).animate({marginLeft: "-"+step*obj}, 500);
+	}
+
+	$(document).on("click", ".slider .nav span", function() // slider click navigate
+	{
+		var sl = $(this).closest(".slider");
+		$(sl).find("span").removeClass("on");
+		$(this).addClass("on");
+		var obj = $(this).attr("rel");
+		sliderJS(obj, sl);
+		return false;
+	});
+</script>
+</head>
+<body>
+<div class="wrapper">
+	<h1>Простой слайдер изображений на jQuery</h1>
+	<h2>Первый слайдер</h2>
+	<div class="slider">
+		<ul>
+			<li><img src="i/1.jpg" alt="" /></li>
+			<li><img src="i/2.jpg" alt="" /></li>
+			<li><img src="i/3.jpg" alt="" /></li>
+			<li><img src="i/4.jpg" alt="" /></li>
+			<li><img src="i/5.jpg" alt="" /></li>
+		</ul>
+	</div>
+	<h2>Второй слайдер</h2>
+	<div class="slider">
+		<ul>
+			<li><img src="i/1.jpg" alt="" /></li>
+			<li><img src="i/2.jpg" alt="" /></li>
+			<li><img src="i/3.jpg" alt="" /></li>
+			<li><img src="i/4.jpg" alt="" /></li>
+			<li><img src="i/5.jpg" alt="" /></li>
+		</ul>
+	</div>
+	<p>Перейти <a href="http://dedushka.org/uroki/5914.html">к описанию урока</a>. </p>
+</div>
+
+</body>
+</html>
