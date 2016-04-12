@@ -1,84 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<meta charset="utf-8">
 	<title>Очень простой слайдер на JS+jQuery</title>
 	<style type="text/css">
-	body {
-		background: #eee; 
-		margin: 0;
-		font-family: arial;
-	}
-	.wrapper {
-		background: #fff;
-		width: 700px;
-		padding: 1px 15px 15px;
-		margin: 0 auto; 
-	}
-	.slider {
-		z-index: 9;
-		width: 700px;
-		height: 290px;
-		overflow: hidden;
-		margin: 0 0 7px;
-		position: relative;
-	}
-	.slider ul,
-	.slider li {
-		padding: 0;
-		margin: 0;
-		list-style-type: none;
-	}
-	.slider ul {
-		width: 9999px; 
-	}
-	.slider ul li {
-		list-style-type: none;
-		float: left;
-		width: 700px;
-		height: 290px;
-	}
-	.slider .nav {
-		position: absolute;
-		left: 15px;
-		bottom: 12px; 
-	}
-	.slider .nav span {
-		opacity: 0.9;
-		background: #fff;
-		margin: 0 8px 0 0;
-		width: 16px;
-		height: 16px;
-		border-radius: 8px;
-		cursor: pointer;
-		overflow: hidden;
-		display: block;
-		float: left;
-		box-shadow: 0 1px 2px #000;
-	}
-	.slider .nav span.on {
-		background: #2e9419;
-	}
+		body {
+			background: #eee; 
+			margin: 0;
+			font-family: arial;
+		}
+		.wrapper {
+			background: #fff;
+			width: 700px;
+			padding: 1px 15px 15px;
+			margin: 0 auto; 
+		}
+		.slider {
+			z-index: 9;
+			width: 700px;
+			height: 290px;
+			overflow: hidden;
+			margin: 0 0 7px;
+			position: relative;
+		}
+		.slider ul,
+		.slider li {
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+		}
+		.slider ul {
+			width: 9999px; 
+		}
+		.slider ul li {
+			list-style-type: none;
+			float: left;
+			width: 700px;
+			height: 290px;
+		}
+		.slider .nav {
+			position: absolute;
+			left: 15px;
+			bottom: 12px; 
+		}
+		.slider .nav span {
+			opacity: 0.9;
+			background: #fff;
+			margin: 0 8px 0 0;
+			width: 16px;
+			height: 16px;
+			border-radius: 8px;
+			cursor: pointer;
+			overflow: hidden;
+			display: block;
+			float: left;
+			box-shadow: 0 1px 2px #000;
+		}
+		.slider .nav span.on {
+			background: #2e9419;
+		}
 	</style>
 	<script type="text/javascript" src="js/jquery.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function()
-	{
-		$(".slider").each(function ()
+	<script type="text/javascript">
+		$(document).ready(function()
 		{
-			var obj = $(this);
-			$(obj).append("<div class='nav'></div>");
-
-			$(obj).find("li").each(function ()
+			$(".slider").each(function ()
 			{
-				$(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>");
-				$(this).addClass("slider"+$(this).index());
-			});
+				var obj = $(this);
+				$(obj).append("<div class='nav'></div>");
 
-			$(obj).find("span").first().addClass("on");
-			//$("li:first span", obj).addClass("on");
+				$(obj).find("li").each(function ()
+				{
+					$(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>");
+					$(this).addClass("slider"+$(this).index());
+				});
+
+				$(obj).find("span").first().addClass("on");
+			});
 		});
-	});
 
 	function sliderJS (obj, sl) // slider function
 	{
@@ -100,30 +101,43 @@
 </script>
 </head>
 <body>
-<div class="wrapper">
-	<h1>Простой слайдер изображений на jQuery</h1>
-	<h2>Первый слайдер</h2>
-	<div class="slider">
-		<ul>
-			<li><img src="i/1.jpg" alt="" /></li>
-			<li><img src="i/2.jpg" alt="" /></li>
-			<li><img src="i/3.jpg" alt="" /></li>
-			<li><img src="i/4.jpg" alt="" /></li>
-			<li><img src="i/5.jpg" alt="" /></li>
-		</ul>
+	<div class="wrapper">
+		<h1>Простой слайдер изображений на jQuery</h1>
+		<h2>Первый слайдер</h2>
+		<div class="slider">
+			<ul>
+				<li><img src="i/1.jpg" alt="" /></li>
+				<li><img src="i/2.jpg" alt="" /></li>
+				<li><img src="i/3.jpg" alt="" /></li>
+				<li><img src="i/4.jpg" alt="" /></li>
+				<li><img src="i/5.jpg" alt="" /></li>
+			</ul>
+		</div>
+		<h2>Второй слайдер</h2>
+		<div class="slider">
+			<ul>
+				<li><img src="i/1.jpg" alt="" /></li>
+				<li><img src="i/2.jpg" alt="" /></li>
+				<li><img src="i/3.jpg" alt="" /></li>
+				<li><img src="i/4.jpg" alt="" /></li>
+				<li><img src="i/5.jpg" alt="" /></li>
+			</ul>
+		</div>
+		<p>Перейти <a href="http://dedushka.org/uroki/5914.html">к описанию урока</a>. </p>
 	</div>
-	<h2>Второй слайдер</h2>
-	<div class="slider">
-		<ul>
-			<li><img src="i/1.jpg" alt="" /></li>
-			<li><img src="i/2.jpg" alt="" /></li>
-			<li><img src="i/3.jpg" alt="" /></li>
-			<li><img src="i/4.jpg" alt="" /></li>
-			<li><img src="i/5.jpg" alt="" /></li>
-		</ul>
-	</div>
-	<p>Перейти <a href="http://dedushka.org/uroki/5914.html">к описанию урока</a>. </p>
-</div>
 
-</body>
-</html>
+	<script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-23131825-1']);
+		_gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})(); </script>
+
+		<script type="text/javascript">new Image().src = "http://counter.yadro.ru/hit?r"+
+			escape(document.referrer)+((typeof(screen)=="undefined")?"":
+				";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+				screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random();</script>
+
+				<script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter20963398 = new Ya.Metrika({id:20963398, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/20963398" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+
+			</body>
+			</html>
