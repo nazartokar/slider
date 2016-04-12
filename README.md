@@ -4,8 +4,10 @@ Simply slider based on jQuery.
 
 ## Features
 
-* Multiple sliders support
-* Autoslide, see settings
+* Easy to install;
+* Multiple sliders support;
+* Automatic sliding, see settings;
+* As small as 2kb.
 
 ## Settings
 
@@ -160,3 +162,6 @@ var repeats = 5, // number of automatic slides
  repeatCount = 0,
  elements = $(slider).find("li").length;
  ```
+## Demo
+
+Working example can be [found here](http://dedushka.org/demo/slider/auto.html).
